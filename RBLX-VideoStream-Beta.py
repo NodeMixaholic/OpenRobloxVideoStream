@@ -21,7 +21,7 @@ def Screenshot(name,Resolution=100): ##Create a screenshot *.png
     if not (Resolution == 100):
         Photo = Image.open(dir+name+".png")
         Size = Photo.size
-        Photo = Photo.resize((int(Size[0]/100*Resolution),int(Size[1]/100*Resolution)))
+        Photo = Photo.resize((int(Size[0]/100*Resolution),int(Size[1]/100*Resolution))).convert(palette=Image.ADAPTIVE, colors=16)
         Photo.save(dir+name+".png")
         Photo.close()
     return dir+name+".png"
